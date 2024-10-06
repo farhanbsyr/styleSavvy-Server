@@ -1,14 +1,16 @@
+import express from "express";
 import mongoose from "mongoose";
-import { createApp } from "./createApp.mjs";
 import cors from "cors";
+import cookieParser from "cookie-parser";
+import authRoutes from "./routes/authRoutes.mjs";
+
 mongoose
   .connect("mongodb+srv://clothingdb:clothingdb@cluster0.tugok.mongodb.net/")
   .then(() => {
     console.log("connected database");
   })
   .catch((err) => console.log(`Error: ${err}`));
-
-const app = createApp();
+const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(
@@ -26,4 +28,8 @@ app.use(
   })
 );
 
+app.use(cookieParser());
+app.use(express.json());
+
+app.use("/api/auth", authRoutes);
 app.listen(PORT, () => console.log(`Server is now running on port ${PORT}`));
