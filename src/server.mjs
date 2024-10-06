@@ -2,8 +2,10 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import authRoutes from "./routes/authRoutes.mjs";
 
+// import routes
+import authRoutes from "./routes/authRoutes.mjs";
+import adminProductsRouter from "./routes/admin/productRoutes.mjs";
 mongoose
   .connect("mongodb+srv://clothingdb:clothingdb@cluster0.tugok.mongodb.net/")
   .then(() => {
@@ -32,4 +34,6 @@ app.use(cookieParser());
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
+app.use("/api/admin/products", adminProductsRouter);
+
 app.listen(PORT, () => console.log(`Server is now running on port ${PORT}`));
