@@ -5,7 +5,7 @@ export const getAllOrdersOfAllUsers = async (req, res) => {
     const orders = await Order.find({});
 
     if (!orders.length) {
-      return res.status(404).json({
+     return res.status(404).json({
         success: false,
         message: "No orders found!",
       });
