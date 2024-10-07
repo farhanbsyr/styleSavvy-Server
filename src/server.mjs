@@ -7,7 +7,7 @@ import cookieParser from "cookie-parser";
 import authRoutes from "./routes/authRoutes.mjs";
 import adminProductsRouter from "./routes/admin/productRoutes.mjs";
 import adminOrderRouter from "./routes/admin/orderRoutes.mjs";
-
+import shopCartRouter from "./routes/shop/cartRoutes.mjs";
 mongoose
   .connect("mongodb+srv://clothingdb:clothingdb@cluster0.tugok.mongodb.net/")
   .then(() => {
@@ -38,5 +38,7 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/admin/products", adminProductsRouter);
 app.use("/api/admin/orders", adminOrderRouter);
+// shop routes
+app.use("/api/shop/cart", shopCartRouter);
 
 app.listen(PORT, () => console.log(`Server is now running on port ${PORT}`));
