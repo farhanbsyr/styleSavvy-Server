@@ -1,5 +1,6 @@
 import Product from "../../modals/product.mjs";
 import { imageUploadUtil } from "../../helpers/cloudinary.mjs";
+
 export const handleImageUpload = async (req, res) => {
   try {
     const b64 = Buffer.from(req.file.buffer).toString("base64");
