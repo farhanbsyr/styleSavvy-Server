@@ -1,6 +1,6 @@
 import Order from "../../modals/orders.mjs";
 import Cart from "../../modals/cart.mjs";
-const createOrder = async (req, res) => {
+export const createOrder = async (req, res) => {
   try {
     const {
       userId,
@@ -92,7 +92,7 @@ const createOrder = async (req, res) => {
   }
 };
 
-const capturePayment = async (req, res) => {
+export const capturePayment = async (req, res) => {
   try {
     const { paymentId, payerId, orderId } = req.body;
 
