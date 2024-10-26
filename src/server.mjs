@@ -11,6 +11,8 @@ import shopCartRouter from "./routes/shop/cartRoutes.mjs";
 import shopProductsRouter from "./routes/shop/productsRoutes.mjs";
 import shopAddressRouter from "./routes/shop/addressRoutes.mjs";
 import shopOrderRouter from "./routes/shop/orderRoutes.mjs";
+import shopSearchRouter from "./routes/shop/searchRoutes.mjs";
+
 import commonFeatureRouter from "./routes/common/featureRoutes.mjs";
 mongoose
   .connect("mongodb+srv://clothingdb:clothingdb@cluster0.tugok.mongodb.net/")
@@ -47,6 +49,7 @@ app.use("/api/shop/cart", shopCartRouter);
 app.use("/api/shop/products", shopProductsRouter);
 app.use("/api/shop/address", shopAddressRouter);
 app.use("/api/shop/order", shopOrderRouter);
+app.use("/api/shop/search", shopSearchRouter);
 
 app.use("/api/common/feature", commonFeatureRouter);
 
